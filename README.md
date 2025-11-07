@@ -56,16 +56,20 @@ Primero que deben abrir su gitHub y clonar el repositorio : https://github.com/N
 ### Adjuntamos evidencia visual de la app
 
 ### Aqui podemos ver la pantalla de Inicio de Sesion si no tiene cuenta apreta registrar
-<img width="200" height="916" alt="image" src="https://github.com/user-attachments/assets/d760b32b-b0c3-4e0f-b923-5f406f30dd00" />
+<img width="408" height="922" alt="image" src="https://github.com/user-attachments/assets/45b5565d-f592-4957-98c7-c25c3d86c906" />
+
 
 ### Aqui vemos la pantalla de registro de usuario que da al no tener cuenta
-<img width="200" height="913" alt="image" src="https://github.com/user-attachments/assets/935549fe-38e4-49eb-8e74-4473c8758033" />
+<img width="405" height="923" alt="image" src="https://github.com/user-attachments/assets/b64bc624-521b-4d61-ac06-3f60628f4719" />
+
 
 ### Aqui tenemos el Home despues de haber iniciado sesion el cual enseña la opcion de ir a Perfil y este trae la API de clima junto a su boton.
-<img width="200" height="921" alt="image" src="https://github.com/user-attachments/assets/de130261-515f-4a8a-ac66-18c71ca201aa" />
+<img width="409" height="921" alt="image" src="https://github.com/user-attachments/assets/a492fad4-7b75-42c7-b2c9-78d6432e8931" />
+
 
 ### Aqui tenemos la pantalla de Profile que tiene acceso a camara e info de la cuenta con los datos.
-<img width="200" height="921" alt="image" src="https://github.com/user-attachments/assets/0da89137-75fd-4b00-bdcc-08a084172c5a" />
+<img width="400" height="920" alt="image" src="https://github.com/user-attachments/assets/4606f7b0-9925-4dbe-993b-3e17a8d5bd40" />
+
 
 
 # Funcionalidades,
