@@ -5,7 +5,7 @@ Integrantes : Nico Maturana y Andy Navarrete
 
 Caso: Agroverde que es una EcoMarket
 
-Alcance EP3: tenemos un:
+Alcance EP3 tenemos un:
 - RegisterScreen.kt
 - AppNavigation.kt
 - LoginUiState.kt y también ViewModel
@@ -56,23 +56,23 @@ Primero que deben abrir su gitHub y clonar el repositorio : https://github.com/N
 ### Adjuntamos evidencia visual de la app
 
 ### Aqui podemos ver la pantalla de Inicio de Sesion si no tiene cuenta apreta registrar
-<img width="408" height="922" alt="image" src="https://github.com/user-attachments/assets/45b5565d-f592-4957-98c7-c25c3d86c906" />
+<img width="200" height="922" alt="image" src="https://github.com/user-attachments/assets/45b5565d-f592-4957-98c7-c25c3d86c906" />
 
 
 ### Aqui vemos la pantalla de registro de usuario que da al no tener cuenta
-<img width="405" height="923" alt="image" src="https://github.com/user-attachments/assets/b64bc624-521b-4d61-ac06-3f60628f4719" />
+<img width="200" height="923" alt="image" src="https://github.com/user-attachments/assets/b64bc624-521b-4d61-ac06-3f60628f4719" />
 
 
 ### Aqui tenemos el Home despues de haber iniciado sesion el cual enseña la opcion de ir a Perfil y este trae la API de clima junto a su boton.
-<img width="409" height="921" alt="image" src="https://github.com/user-attachments/assets/a492fad4-7b75-42c7-b2c9-78d6432e8931" />
+<img width="200" height="921" alt="image" src="https://github.com/user-attachments/assets/a492fad4-7b75-42c7-b2c9-78d6432e8931" />
 
 
 ### Aqui tenemos la pantalla de Profile que tiene acceso a camara e info de la cuenta con los datos.
-<img width="400" height="920" alt="image" src="https://github.com/user-attachments/assets/4606f7b0-9925-4dbe-993b-3e17a8d5bd40" />
+<img width="200" height="920" alt="image" src="https://github.com/user-attachments/assets/4606f7b0-9925-4dbe-993b-3e17a8d5bd40" />
 
 
 
-# Funcionalidades,
+# Funcionalidades
  
 - Un Register de usario que sirve para crear cuentas para nuevo usuarios que se llaman RegisterScreen.kt y también el RegisterViewModel
  
@@ -87,32 +87,32 @@ Primero que deben abrir su gitHub y clonar el repositorio : https://github.com/N
 - Perfil Basico llamado (ProfileScreen.kt) que ese seria el perfil del usario donde se muestra la info que se puso al crear la cuenta.
 
 Apartado más especificado de 
-### Formulario validado (registro/otra entidad),
+### Formulario validado (registro/otra entidad)
 - Implementamos un RegisterScreen.kt con un RegisterViewModel para la creacion de las cuentas de usuarios.
 - Tambien esta ValidationUtils.kt que implementamos para asegurar que los datos sean validos en los registros.
-### Navegación y backstack,
+### Navegación y backstack
 - Usamos AppNavigation.kt para gestionar los procesos de flujos de pantallas
 - Cuando se hace Login se usan LoginScreen.kt y la app viaja hasta el HomeScreen.kt
-### Gestión de estado (carga/éxito/error),
+### Gestión de estado (carga/éxito/error)
 - el gestion de estado pertenece a los ViewModel.kt
 - y en el UiState como el LoginUiState.kt hace que entregue el isLoading que es la barrita o circulito de carga o aveces puede mostrar que fallo algo.
-### Persistencia local (CRUD) y almacenamiento de imagen de perfil,
+### Persistencia local (CRUD) y almacenamiento de imagen de perfil
 - Usamos un SessionManager para tener un registro persistencia local de guardar y leer.
-### Recursos nativos: cámara/galería (permisos y fallback),
+### Recursos nativos: cámara/galería (permisos y fallback)
 - En la app usamos algunos componentes nativos basicos que fueron los de galeria y camara que se encuentran en ImagePickerDialog.kt y ahi mismo poder elegir si tomarnos una foto o buscar en galeria.
 
 
-### Consumo de API (incluye /me),
+### Consumo de API (incluye /me)
 
 - API clima con su apikey de OpenWeatherMap
 - Sitio Web: openweathermap.org
 
 
-## Endpoints,
+## Endpoints
 
-Base URL:(https://api.openweathermap.org/data/2.5/weather?q=Santiago&appid=97413f5c744202c514c51d7b858b16b1&units=metric&lang=es)
+Base URL: (https://api.openweathermap.org/data/2.5/weather?q=Santiago&appid=97413f5c744202c514c51d7b858b16b1&units=metric&lang=es)
 
-## User flows,
+## User flows
 ### Procesos del Usuario al ingresar paso a paso:
 - El usuario nuevo abre la App y llega a LoginScreen
 - Llega a RegisterScreen y llena el formulario solicitado y presiona (Registar)
