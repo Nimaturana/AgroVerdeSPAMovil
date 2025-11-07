@@ -21,7 +21,7 @@ Alcance EP3 tenemos un:
 - Componentes Nativos que son Camata y Galeria llamados
  
 ### Instalación:
-Primero que deben abrir su gitHub y clonar el repositorio : https://github.com/Nimaturana/AgroVerdeSPAappMdos.git 
+Primero que deben abrir su gitHub y clonar el repositorio : https://github.com/Nimaturana/AgroVerdeSPAMovil.git 
 -Luego Abrir el proyecto en android Studio
 -Y luego esperar que la URL sincronice las dependencias.
 
