@@ -32,16 +32,66 @@ Primero que deben abrir su gitHub y clonar el repositorio : https://github.com/N
  ### Proceso basico 
  Registro -> Validacion -> Login -> Home -> Perfil 
  
- Mostraremos como son las secciones de las carpetas en base orden de baja.
- 
-- Esta la carpeta ViewModel que trae el archivo (LoginViewModel.kt) y (ProfileViewModel.kt) estos haces la gestión del estado de cada pantalla es el inicio de la cuenta.
- 
-- Esta el deposito que crea el archivo de Repositorios de Usuarios.kt que almacena los datos.
- 
- 
-- Esta la navegación llamada(AppNavigation.kt) que el archivo es cual me da la dirección a las aéreas de Login, register , home , profile es decir me lleva a varios destinos tambien te lleva al sector del clima.
- 
-- Tenemos el Screens es cual nos da la imagen de poder tener visión al Home , Login , Perfil y el Registro de Usuario. Y también el Color.kt , Theme.kt , Type.kt que ayudan al diseño de la app
+ │   MainActivity.kt
+│
+├───data
+│   ├───local
+│   │       SessionManager.kt
+│   │       UserDataStore.kt
+│   │
+│   └───remote
+│       │   ApiService.kt
+│       │   AuthInterceptor.kt
+│       │   RetrofitClient.kt
+│       │
+│       ├───dto
+│       │       LoginRequest.kt
+│       │       LoginResponse.kt
+│       │       UserDto.kt
+│       │       UsersResponse.kt
+│       │       WeatherResponse.kt
+│       │
+│       └───weatherapi
+│               WeatherApiService.kt
+│               WeatherRetrofitClient.kt
+│
+├───model
+│       LoginUiState.kt
+│       ProfileUiState.kt
+│
+├───repository
+│       AvatarRepository.kt
+│       UserRepository.kt
+│       WeatherRepository.kt
+│
+├───ui
+│   └───theme
+│       │   Color.kt
+│       │   Theme.kt
+│       │   Type.kt
+│       │
+│       ├───components
+│       │       ImagePickerDialog.kt
+│       │
+│       ├───navigation
+│       │       AppNavigation.kt
+│       │
+│       └───screens
+│               HomeScreen.kt
+│               LoginScreen.kt
+│               ProfileScreen.kt
+│               RegisterScreen.kt
+│
+├───utils
+│       ValidationUtils.kt
+│
+└───viewmodel
+        HomeViewModel.kt
+        LoginViewModel.kt
+        ProfileViewModel.kt
+        RegisterViewModel.kt
+        WeatherViewModel.kt
+
 
 ### Recursos Nativos:
 - Camara y galeria fueron integradas en ImagePickerDialog.kt
