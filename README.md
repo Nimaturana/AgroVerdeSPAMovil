@@ -31,7 +31,7 @@ Primero que deben abrir su gitHub y clonar el repositorio : https://github.com/N
 
  ### Proceso basico 
  Registro -> Validacion -> Login -> Home -> Perfil 
- ### Adjunto Imagenes de la estructura 
+ ### Imagenes de la estructura de proyecto.
  - <img width="391" height="927" alt="image" src="https://github.com/user-attachments/assets/f9588359-3477-480c-ac27-ce16e8985eb3" />
  - <img width="390" height="235" alt="image" src="https://github.com/user-attachments/assets/39e7e7f8-1961-4c5e-b0e5-b81825628279" />
 
