@@ -3,6 +3,8 @@
 Integrantes : Nico Maturana y Andy Navarrete 
 - Tomamos el caso agroverde que es un ecomarket.
 
+Nosotros tomamos el Proyecto de AgoverdeSPA para dar un inicio a la venta y distribucion de productos agricolas que la mayoria son organicos y que la app contara con distintas partes como perfil de usuario  y un registro basicamente .
+
 Caso: Agroverde que es una EcoMarket
 
 Alcance EP3 tenemos un:
