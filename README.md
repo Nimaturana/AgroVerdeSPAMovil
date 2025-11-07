@@ -1,6 +1,7 @@
 # AgroVerdeSPAappMdos
-Integrantes : Nico Maturana 
-Tomamos el caso agroverde que es un ecomarket.
+
+Integrantes : Nico Maturana y Andy Navarrete 
+-Tomamos el caso agroverde que es un ecomarket.
 
 Caso: Agroverde que es una EcoMarket
 
@@ -9,7 +10,7 @@ Alcance EP3: tenemos un:
 - AppNavigation.kt
 - LoginUiState.kt y también ViewModel
 - Recursos Nativos como : Cámara , galería llamado ImagePickerDialog.kt
-- Sumar Api : FALTA AQUI OJO
+- Sumar Api : Usamos la Api https://openweathermap.org/
 
 ## Stack:
 - Lenguaje usado Kotlin
@@ -60,7 +61,7 @@ Primero que deben abrir su gitHub y clonar el repositorio : https://github.com/N
 ### Aqui vemos la pantalla de registro de usuario que da al no tener cuenta
 <img width="200" height="913" alt="image" src="https://github.com/user-attachments/assets/935549fe-38e4-49eb-8e74-4473c8758033" />
 
-### Aqui tenemos el Home despues de haber iniciado sesion el cual enseña la opcion de ir a Perfil o ver Clima.
+### Aqui tenemos el Home despues de haber iniciado sesion el cual enseña la opcion de ir a Perfil y este trae la API de clima junto a su boton.
 <img width="200" height="921" alt="image" src="https://github.com/user-attachments/assets/de130261-515f-4a8a-ac66-18c71ca201aa" />
 
 ### Aqui tenemos la pantalla de Profile que tiene acceso a camara e info de la cuenta con los datos.
