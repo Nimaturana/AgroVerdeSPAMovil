@@ -31,67 +31,12 @@ Primero que deben abrir su gitHub y clonar el repositorio : https://github.com/N
 
  ### Proceso basico 
  Registro -> Validacion -> Login -> Home -> Perfil 
- 
- │   MainActivity.kt
-│
-├───data
-│   ├───local
-│   │       SessionManager.kt
-│   │       UserDataStore.kt
-│   │
-│   └───remote
-│       │   ApiService.kt
-│       │   AuthInterceptor.kt
-│       │   RetrofitClient.kt
-│       │
-│       ├───dto
-│       │       LoginRequest.kt
-│       │       LoginResponse.kt
-│       │       UserDto.kt
-│       │       UsersResponse.kt
-│       │       WeatherResponse.kt
-│       │
-│       └───weatherapi
-│               WeatherApiService.kt
-│               WeatherRetrofitClient.kt
-│
-├───model
-│       LoginUiState.kt
-│       ProfileUiState.kt
-│
-├───repository
-│       AvatarRepository.kt
-│       UserRepository.kt
-│       WeatherRepository.kt
-│
-├───ui
-│   └───theme
-│       │   Color.kt
-│       │   Theme.kt
-│       │   Type.kt
-│       │
-│       ├───components
-│       │       ImagePickerDialog.kt
-│       │
-│       ├───navigation
-│       │       AppNavigation.kt
-│       │
-│       └───screens
-│               HomeScreen.kt
-│               LoginScreen.kt
-│               ProfileScreen.kt
-│               RegisterScreen.kt
-│
-├───utils
-│       ValidationUtils.kt
-│
-└───viewmodel
-        HomeViewModel.kt
-        LoginViewModel.kt
-        ProfileViewModel.kt
-        RegisterViewModel.kt
-        WeatherViewModel.kt
+ ### Adjunto Imagenes de la estructura 
+ - <img width="391" height="927" alt="image" src="https://github.com/user-attachments/assets/f9588359-3477-480c-ac27-ce16e8985eb3" />
+ - <img width="390" height="235" alt="image" src="https://github.com/user-attachments/assets/39e7e7f8-1961-4c5e-b0e5-b81825628279" />
 
+
+ 
 
 ### Recursos Nativos:
 - Camara y galeria fueron integradas en ImagePickerDialog.kt
