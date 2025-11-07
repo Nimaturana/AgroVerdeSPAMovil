@@ -109,6 +109,7 @@ Apartado más especificado de
 
 
 ## Endpoints
+<img width="900" height="79" alt="image" src="https://github.com/user-attachments/assets/6b6477d6-ce73-44f0-8144-45ba856f9b78" />
 
 Base URL: (https://api.openweathermap.org/data/2.5/weather?q=Santiago&appid=97413f5c744202c514c51d7b858b16b1&units=metric&lang=es)
 
