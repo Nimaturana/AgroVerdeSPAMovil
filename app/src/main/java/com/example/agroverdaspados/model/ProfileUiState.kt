@@ -2,14 +2,16 @@ package com.example.agroverdaspados.model
 
 import android.net.Uri
 
-/**
- * Representa el estado de la pantalla de perfil.
- * Usado por ProfileViewModel para actualizar la UI de manera reactiva.
- */
-
 data class ProfileUiState(
+    // saber si pantalla esta cargando datos
     val isLoading: Boolean = true,
+
+    // nombre de usuario mostrado en perfil guardado en DataStore
     val userName: String = "",
+
+    // Correo electronico guardado en DataStore
     val userEmail: String = "",
+
+    // imagen seleccionada o tomada por la camara emulada
     val avatarUri: Uri? = null
 )

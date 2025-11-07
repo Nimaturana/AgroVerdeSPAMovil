@@ -10,13 +10,14 @@ import com.example.agroverdaspados.ui.theme.screens.LoginScreen
 import com.example.agroverdaspados.ui.theme.screens.ProfileScreen
 import com.example.agroverdaspados.ui.theme.screens.RegisterScreen
 
+    // appnavigation administra todas las pantallas y se definen cual traer
 @Composable
 fun AppNavigation() {
     val navController: NavHostController = rememberNavController()
 
     NavHost(navController = navController, startDestination = "login") {
 
-        // 🔹 pantalla Login
+        //  pantalla Login
         composable("login") {
             LoginScreen(
                 onLoginSuccess = { navController.navigate("home") },
@@ -24,19 +25,19 @@ fun AppNavigation() {
             )
         }
 
-        //  pantalla Registro
+        //  pantalla registro
         composable("register") {
             RegisterScreen(
                 onRegisterSuccess = { navController.navigate("login") } // vuelve al login al registrarse
             )
         }
 
-        //  pantalla Home
+        //  pantalla home
         composable("home") {
             HomeScreen(onProfileClick = { navController.navigate("profile") })
         }
 
-        //  pantalla Perfil
+        //  pantalla perfil
         composable("profile") {
             ProfileScreen(onBackClick = { navController.popBackStack() })
         }

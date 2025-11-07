@@ -3,14 +3,15 @@ package com.example.agroverdaspados.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.agroverdaspados.data.local.UserSessionManager
+import com.example.agroverdaspados.data.local.UserDataStore
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val sessionManager = UserSessionManager(application.applicationContext)
+    private val userDataStore = UserDataStore(application)
 
     private val _email = MutableStateFlow("")
     val email = _email.asStateFlow()
@@ -30,22 +31,40 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun login(onSuccess: () -> Unit) {
-        when {
+        viewModelScope.launch {
 
-            _email.value.isEmpty() || _password.value.isEmpty() -> {
-                _errorMessage.value = "Completa todos los campos"
-            }
-            !_email.value.contains("@") -> {
-                _errorMessage.value = "El correo electrónico debe contener '@'"
-            }
+            // lee datos guardados en DataStore
+            val savedEmail = userDataStore.getUserEmail().first()
+            val savedPassword = userDataStore.getUserPassword().first()
 
-            else -> {
-                _errorMessage.value = ""
-                // Guarda el email en DataStore y luego se pone en el perfil
-                viewModelScope.launch {
-                    sessionManager.saveUserEmail(_email.value)
+            when {
+
+                _email.value.isEmpty() || _password.value.isEmpty() -> {
+                    _errorMessage.value = "Completa todos los campos"
                 }
-                onSuccess()
+
+                !_email.value.contains("@") -> {
+                    _errorMessage.value = "El correo electrónico debe contener '@'"
+                }
+
+                savedEmail.isNullOrEmpty() || savedPassword.isNullOrEmpty() -> {
+                    _errorMessage.value = "No existe un usuario registrado"
+                }
+
+                // compara email real guardada en DataStore
+                _email.value != savedEmail -> {
+                    _errorMessage.value = "Email y/o Contraseña incorrecta, intentar nuevamnete"
+                }
+
+                // compara contraseña real guardada en DataStore
+                _password.value != savedPassword -> {
+                    _errorMessage.value = "Email y/o Contraseña incorrecta, intentar nuevamnete"
+                }
+
+                else -> {
+                    _errorMessage.value = ""
+                    onSuccess()
+                }
             }
         }
     }

@@ -23,8 +23,8 @@ data class LoginResponse(
     val lastName: String,
 
     @SerializedName("AccesoToken")
-    val accessToken: String,  // 🔑 TOKEN JWT - Lo guardamos en SessionManager
+    val accessToken: String,  // TOKEN JWT
 
     @SerializedName("RefrescarToken")
-    val refreshToken: String?  // Opcional - Para renovar el token
+    val refreshToken: String?  // opcional - Para renovar el token
 )

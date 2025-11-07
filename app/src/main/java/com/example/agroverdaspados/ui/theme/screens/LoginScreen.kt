@@ -6,7 +6,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.res.painterResource
 import com.example.agroverdaspados.R
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -18,12 +17,14 @@ import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.layout.ContentScale
+
+
+// se define todo lo que tendra loginscreen
 
 @Composable
 fun LoginScreen(
     onLoginSuccess: () -> Unit,
-    onNavigateToRegister: () -> Unit, // ✅ nuevo parámetro agregado
+    onNavigateToRegister: () -> Unit,
     viewModel: LoginViewModel = viewModel()
 ) {
     val email by viewModel.email.collectAsState()
@@ -32,7 +33,7 @@ fun LoginScreen(
 
     var passwordVisible by remember { mutableStateOf(false) }
 
-    // Estructura principal de la pantalla: columna centrada
+    // estructura pantalla principal
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -40,7 +41,7 @@ fun LoginScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Logo de la app
+        // logo de la app (foto de web que teniamos anteriormente con el mismo caso)
         Image(
             painter = painterResource(id = R.drawable.logoagro),
             contentDescription = "Logo AgroVerde SPA",
@@ -50,7 +51,7 @@ fun LoginScreen(
                 .aspectRatio(426f / 100f)
         )
 
-        // Título
+        // titulo
         Text(
             text = "Iniciar Sesion",
             style = MaterialTheme.typography.titleLarge,
@@ -60,7 +61,7 @@ fun LoginScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Campo de correo
+        // campo de correo
         TextField(
             value = email,
             onValueChange = viewModel::onEmailChanged,
@@ -71,7 +72,7 @@ fun LoginScreen(
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Campo de contraseña con ojito
+        // campo de contraseña con ojito
         TextField(
             value = password,
             onValueChange = viewModel::onPasswordChanged,
@@ -89,7 +90,7 @@ fun LoginScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Botón para iniciar sesión
+        // boton para iniciar sesion
         Button(
             onClick = { viewModel.login(onLoginSuccess) },
             modifier = Modifier
@@ -99,7 +100,7 @@ fun LoginScreen(
             Text("Iniciar Sesión")
         }
 
-        // 🔹 Botón para ir a registro
+        // boton para ir a registro
         TextButton(
             onClick = { onNavigateToRegister() },
             modifier = Modifier.padding(top = 8.dp)
@@ -107,7 +108,7 @@ fun LoginScreen(
             Text("¿No tienes cuenta? Regístrate aquí")
         }
 
-        // Mensaje de error
+        // mensaje de error
         if (errorMessage.isNotEmpty()) {
             Spacer(modifier = Modifier.height(8.dp))
             Text(
@@ -117,13 +118,12 @@ fun LoginScreen(
         }
     }
 }
-
+// emulacion
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun LoginScreenPreview() {
     MaterialTheme {
 
-        //  agregamos ambos parámetros para evitar errores
         LoginScreen(
             onLoginSuccess = { /* Simulación */ },
             onNavigateToRegister = { /* Simulación */ }

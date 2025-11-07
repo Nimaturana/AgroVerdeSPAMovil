@@ -1,17 +1,17 @@
 package com.example.agroverdaspados.repository
 
 import com.example.agroverdaspados.data.remote.ApiService
-import com.example.agroverdaspados.data.remote.RetrofitClient
 import com.example.agroverdaspados.data.remote.dto.UserDto
 import android.content.Context
+import com.example.agroverdaspados.data.remote.RetrofitClient
 
 
-/**
- * Repository: Abstrae la fuente de datos
- * El ViewModel NO sabe si los datos vienen de API, base de datos local, etc.
- */
+
+// del repository abtra fuete de datos
+
 
 class UserRepository(context: Context) {
+
 
     // Crear la instancia del API Service (pasando el contexto)
 
@@ -19,21 +19,20 @@ class UserRepository(context: Context) {
         .create(context)
         .create(ApiService::class.java)
 
-    /**
-     * Obtiene un usuario de la API
-     *
-     * Usa Result<T> para manejar éxito/error de forma elegante
-     */
+
+    // obtiene un usuario de api
+
     suspend fun fetchUser(id: Int = 1): Result<UserDto> {
         return try {
-            // Llamar a la API (esto puede tardar varios segundos)
+            // llama la API
             val user = apiService.getUserById(id)
 
-            // Retornar éxito
+            // retorna exito
             Result.success(user)
 
         } catch (e: Exception) {
-            // Si algo falla (sin internet, timeout, etc.)
+
+            // por si algo falla por ejemplo internet
             Result.failure(e)
         }
     }

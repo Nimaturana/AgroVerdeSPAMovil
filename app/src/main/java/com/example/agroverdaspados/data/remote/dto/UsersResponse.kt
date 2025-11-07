@@ -12,11 +12,11 @@ data class UsersResponse(
     val users: List<UserDto>,
 
     @SerializedName("total")
-    val total: Int,  // Total de usuarios en la base de datos
+    val total: Int,  // total de usuarios
 
     @SerializedName("skip")
-    val skip: Int,   // Cuántos usuarios se saltaron (paginación)
+    val skip: Int,   // cuantos usuarios dieron skip
 
     @SerializedName("limite")
-    val limit: Int   // Límite de usuarios por página
+    val limit: Int   // limite de usuarios por pagina
 )

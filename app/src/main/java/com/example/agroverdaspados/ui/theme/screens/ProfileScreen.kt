@@ -20,6 +20,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.FileProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -31,6 +32,8 @@ import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
 
+// se define todo lo que tendra profilescreen
+
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun ProfileScreen(onBackClick: () -> Unit = {}) {
@@ -40,7 +43,7 @@ fun ProfileScreen(onBackClick: () -> Unit = {}) {
     var showDialog by remember { mutableStateOf(false) }
     var tempCameraUri by remember { mutableStateOf<Uri?>(null) }
 
-    // ✅ Permisos
+    // permisos camara y multimedia
     val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
         listOf(
             Manifest.permission.CAMERA,
@@ -55,7 +58,7 @@ fun ProfileScreen(onBackClick: () -> Unit = {}) {
 
     val permissionState = rememberMultiplePermissionsState(permissions)
 
-    // ✅ Launcher cámara
+    //  launcher de la camara
     val takePictureLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.TakePicture()
     ) { success ->
@@ -64,14 +67,14 @@ fun ProfileScreen(onBackClick: () -> Unit = {}) {
         }
     }
 
-    // ✅ Launcher galería
+    //  launcher de galeria
     val pickImageLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.GetContent()
     ) { uri ->
         uri?.let { viewModel.updateAvatar(it) }
     }
 
-    // ✅ Diálogo de selección
+    // dialogo de seleccion
     if (showDialog) {
         AlertDialog(
             onDismissRequest = { showDialog = false },
@@ -111,18 +114,28 @@ fun ProfileScreen(onBackClick: () -> Unit = {}) {
         )
     }
 
-    // ✅ UI principal
+    // pantalla principal de profile
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+    )
+    {
+
+        // título de perfil
+        Text(
+            text = "Perfil",
+            style = MaterialTheme.typography.headlineSmall,
+            color = MaterialTheme.colorScheme.primary
+        )
+
+        Spacer(modifier = Modifier.height(24.dp))
         Box(
             modifier = Modifier.size(150.dp),
             contentAlignment = Alignment.BottomEnd
         ) {
-            // ✅ Mostrar imagen guardada o icono por defecto
+            // muestra imagen guardada o icono por defecto
             if (uiState.avatarUri != null) {
                 AsyncImage(
                     model = uiState.avatarUri,
@@ -152,7 +165,7 @@ fun ProfileScreen(onBackClick: () -> Unit = {}) {
                 }
             }
 
-            // Ícono de cámara pequeño
+            // i de camara pequeño
             Surface(
                 modifier = Modifier
                     .size(40.dp)
@@ -180,9 +193,6 @@ fun ProfileScreen(onBackClick: () -> Unit = {}) {
     }
 }
 
-/**
- * Crea un URI temporal para guardar la foto capturada por la cámara.
- */
 private fun createImageUri(context: Context): Uri? {
     val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
     val imageFileName = "profile_avatar_$timeStamp.jpg"
@@ -199,3 +209,13 @@ private fun createImageUri(context: Context): Uri? {
         null
     }
 }
+
+// emulacion
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun ProfileScreenPreview() {
+    MaterialTheme {
+        ProfileScreen(onBackClick = {})
+    }
+}
+

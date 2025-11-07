@@ -10,7 +10,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-// Extensión para crear el DataStore de avatar
+// extension para crear el DataStore de avatar
 private val Context.avatarDataStore: DataStore<Preferences> by preferencesDataStore(
     name = "avatar_preferences"
 )
@@ -22,11 +22,8 @@ class AvatarRepository(private val context: Context) {
         private val AVATAR_URI_KEY = stringPreferencesKey("avatar_uri_key")
     }
 
-    /**
-     * Obtiene el URI del avatar como Flow reactivo.
-     * Emite cada vez que cambia el avatar guardado.
-     */
 
+    // obtiene el uri del avatar
     fun getAvatarUri(): Flow<Uri?> {
         return context.avatarDataStore.data.map { preferences ->
             preferences[AVATAR_URI_KEY]?.let { uriString ->
@@ -35,10 +32,9 @@ class AvatarRepository(private val context: Context) {
         }
     }
 
-    /**
-     * Guarda el URI del avatar en DataStore.
-     * El cambio se persiste inmediatamente.
-     */
+
+    // guarda el uri del avatar en DataStore
+
     suspend fun saveAvatarUri(uri: Uri?) {
         if (uri != null) {
             context.avatarDataStore.edit { preferences ->
@@ -49,9 +45,7 @@ class AvatarRepository(private val context: Context) {
         }
     }
 
-    /**
-     * Elimina el URI del avatar de DataStore.
-     */
+    // elimina el uri del avatar de DataStore
     suspend fun clearAvatarUri() {
         context.avatarDataStore.edit { preferences ->
             preferences.remove(AVATAR_URI_KEY)

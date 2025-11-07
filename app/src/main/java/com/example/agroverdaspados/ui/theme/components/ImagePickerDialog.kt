@@ -47,7 +47,9 @@ fun ImagePickerDialog(
 
                 Spacer(modifier = Modifier.height(8.dp))
 
-                // --- Opción de Cámara ---
+
+                // opcion de camara
+
                 ImagePickerOption(
                     icon = Icons.Filled.CameraAlt,
                     title = "Tomar foto",
@@ -57,7 +59,9 @@ fun ImagePickerDialog(
 
                 Divider(modifier = Modifier.padding(vertical = 4.dp))
 
-                // --- Opción de Galería ---
+
+                // opcion de galeria
+
                 ImagePickerOption(
                     icon = Icons.Filled.PhotoLibrary,
                     title = "Elegir de galería",

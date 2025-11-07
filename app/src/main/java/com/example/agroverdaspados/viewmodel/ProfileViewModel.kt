@@ -4,7 +4,7 @@ import android.app.Application
 import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.agroverdaspados.data.local.UserSessionManager
+import com.example.agroverdaspados.data.local.UserDataStore
 import com.example.agroverdaspados.model.ProfileUiState
 import com.example.agroverdaspados.repository.AvatarRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,31 +17,33 @@ import kotlinx.coroutines.launch
 class ProfileViewModel(application: Application) : AndroidViewModel(application) {
 
     private val avatarRepository = AvatarRepository(application.applicationContext)
-    private val sessionManager = UserSessionManager(application.applicationContext)
+    private val userDataStore = UserDataStore(application.applicationContext)
 
     private val _uiState = MutableStateFlow(ProfileUiState())
     val uiState: StateFlow<ProfileUiState> = _uiState.asStateFlow()
 
     init {
         observeSavedAvatar()
-        observeUserEmail()
+        observeUserData()
     }
 
-    //  Escucha el correo guardado en DataStore
-    private fun observeUserEmail() {
+    // carga nombre y correo reales desde DataStore
+    private fun observeUserData() {
         viewModelScope.launch {
-            sessionManager.getUserEmail().collectLatest { email ->
-                _uiState.update {
-                    it.copy(
-                        userEmail = email ?: "Sin correo guardado",
-                        userName = email?.substringBefore("@")?.replaceFirstChar { c -> c.uppercase() } ?: "Usuario"
-                    )
+            userDataStore.getUserName().collectLatest { name ->
+                userDataStore.getUserEmail().collectLatest { email ->
+                    _uiState.update {
+                        it.copy(
+                            userName = name ?: "Usuario",
+                            userEmail = email ?: "Sin correo guardado"
+                        )
+                    }
                 }
             }
         }
     }
 
-    // Escucha cambios en el avatar
+    // escucha cambios en el avatar guardado
     private fun observeSavedAvatar() {
         viewModelScope.launch {
             avatarRepository.getAvatarUri().collectLatest { savedUri ->
@@ -50,6 +52,7 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
+    // permite actualizar foto de perfil
     fun updateAvatar(uri: Uri?) {
         viewModelScope.launch {
             avatarRepository.saveAvatarUri(uri)

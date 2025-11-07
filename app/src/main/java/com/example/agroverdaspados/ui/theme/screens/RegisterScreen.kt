@@ -9,6 +9,9 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.agroverdaspados.viewmodel.RegisterViewModel
+import androidx.compose.ui.tooling.preview.Preview
+
+// se define todo lo que tendra registerscreen
 
 @Composable
 fun RegisterScreen(
@@ -35,7 +38,6 @@ fun RegisterScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Campo: Nombre
         OutlinedTextField(
             value = nombre,
             onValueChange = viewModel::onNombreChanged,
@@ -46,7 +48,6 @@ fun RegisterScreen(
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Campo: Correo
         OutlinedTextField(
             value = correo,
             onValueChange = viewModel::onCorreoChanged,
@@ -57,7 +58,6 @@ fun RegisterScreen(
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Campo: Contraseña
         OutlinedTextField(
             value = clave,
             onValueChange = viewModel::onClaveChanged,
@@ -69,10 +69,10 @@ fun RegisterScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Botón para registrar
+        // boton correcto que esta guardada en DataStore
         Button(
             onClick = {
-                if (viewModel.validarFormulario()) {
+                viewModel.registrarUsuario {
                     onRegisterSuccess()
                 }
             },
@@ -81,7 +81,6 @@ fun RegisterScreen(
             Text("Registrar")
         }
 
-        // Mensaje de error si hay
         if (errorMessage.isNotEmpty()) {
             Spacer(modifier = Modifier.height(8.dp))
             Text(
@@ -89,5 +88,16 @@ fun RegisterScreen(
                 color = MaterialTheme.colorScheme.error
             )
         }
+    }
+}
+
+// emulacion
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun RegisterScreenPreview() {
+    MaterialTheme {
+        RegisterScreen(
+            onRegisterSuccess = { /* simulacion */ }
+        )
     }
 }
