@@ -1,7 +1,7 @@
 # AgroVerdeSPAappMdos
 
 Integrantes : Nico Maturana y Andy Navarrete 
--Tomamos el caso agroverde que es un ecomarket.
+- Tomamos el caso agroverde que es un ecomarket.
 
 Caso: Agroverde que es una EcoMarket
 
