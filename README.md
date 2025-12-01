@@ -71,22 +71,22 @@ Primero que deben abrir su gitHub y clonar el repositorio : https://github.com/N
 
 # Funcionalidades
  
-- Un Register de usario que sirve para crear cuentas para nuevo usuarios que se llaman RegisterScreen.kt y también el RegisterViewModel
+- Un Register de usario que sirve para crear cuentas para nuevo usuarios que se llaman RegisterScreen.kt y también el RegisterViewModel que ahora sumamos la ayuda de ValidationUtils que nos sirve para revisar que el correo y la contraseña esten validos o correctos, si esta todo bien se guarda el usuario en el registro usando el UserDataStore.
  
-- También contamos con un (ValidationUtils.kt) de datos el cual dice que sin los datos ingresados sean validos y cumplan requisitos
+- También contamos con un (ValidationUtils.kt) de datos el cual dice que sin los datos ingresados sean validos y cumplan requisitos que estos van conectados con UserDataStore.
  
-- Un Basico Login (LoginScreen.kt y LoginViewModel) es especial para ya usuarios registrados.
+- Un Basico Login (LoginScreen.kt y LoginViewModel) es especial para ya usuarios registrados lo que hace es revisar al momento si escribiste mal tu cuenta que los compara los datos registrados con los actuales guardados que estan en UserDataStore y si alguno de los datos que ingresamos no coincide es porque el User no existe mostrando un error.
  
 - Un Gestion de sesión llamado (SessionManager) que esta puesto en la carpeta Local y la función que hace es recordar al usuario que ya este registrado.
  
-- Trae un (HomeScreen.kt y un HomeViewModel) es la pantalla que sale después de dar inicio sesión mejor dicho el menú general.
+- Trae un (HomeScreen.kt y un HomeViewModel) es la pantalla que sale después de dar inicio sesión mejor dicho el menú general y que se encarga de traerte el clima.
  
-- Perfil Basico llamado (ProfileScreen.kt) que ese seria el perfil del usario donde se muestra la info que se puso al crear la cuenta.
+- Perfil Basico llamado (ProfileScreen.kt) que ese seria el perfil del usario donde se muestra la info que se puso al crear la cuenta. Tambien cuenta con AvatarRepository que nos ayuda a guardar la foto o la que tomaste con la camara.
 
 Apartado más especificado de 
 ### Formulario validado (registro/otra entidad)
 - Implementamos un RegisterScreen.kt con un RegisterViewModel para la creacion de las cuentas de usuarios.
-- Tambien esta ValidationUtils.kt que implementamos para asegurar que los datos sean validos en los registros.
+- Lo importante es que usamos ValidationUtils.kt para asegurar que los datos sean reales ppara que se guarden despues  revisamos que no haya campos vacíos, que el email tenga el formato correcto y que la contraseña cumpla con el largo mínimo.
 ### Navegación y backstack
 - Usamos AppNavigation.kt para gestionar los procesos de flujos de pantallas
 - Cuando se hace Login se usan LoginScreen.kt y la app viaja hasta el HomeScreen.kt
