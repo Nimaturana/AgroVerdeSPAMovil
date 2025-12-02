@@ -9,9 +9,23 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
+//  se cambia para que en las pruebas unitarias se pueda mockear
 class RegisterViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val userDataStore = UserDataStore(application)
+
+    // constructor uno
+    private var userDataStore: UserDataStore = UserDataStore(application)
+
+    // constructor dos solo para tests unitarios
+    constructor(userDataStore: UserDataStore, app: Application) : this(app) {
+        this.userDataStore = userDataStore
+    }
+
+
+
+/* ... class RegisterViewModel(application: Application) : AndroidViewModel(application) {
+
+    private val userDataStore = UserDataStore(application)*/
 
     // Campos del formulario
     private val _nombre = MutableStateFlow("")

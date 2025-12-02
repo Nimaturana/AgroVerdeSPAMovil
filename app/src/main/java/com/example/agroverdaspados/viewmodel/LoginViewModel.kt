@@ -9,9 +9,25 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
+    //  se cambia para que en las pruebas unitarias se pueda mockear
+
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val userDataStore = UserDataStore(application)
+
+    // constructor uno
+    private var userDataStore: UserDataStore = UserDataStore(application)
+
+    // constructor dos solo para tests unitarios
+    constructor(userDataStore: UserDataStore, app: Application) : this(app) {
+        this.userDataStore = userDataStore
+    }
+
+
+
+    // codigo usado antes de test
+    /*class LoginViewModel(application: Application) : AndroidViewModel(application) {
+
+    private val userDataStore = UserDataStore(application) */
 
     private val _email = MutableStateFlow("")
     val email = _email.asStateFlow()
@@ -53,12 +69,12 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
                 // compara email real guardada en DataStore
                 _email.value != savedEmail -> {
-                    _errorMessage.value = "Email y/o Contraseña incorrecta, intentar nuevamnete"
+                    _errorMessage.value = "Email y/o Contraseña incorrecta, intentar nuevamente"
                 }
 
                 // compara contraseña real guardada en DataStore
                 _password.value != savedPassword -> {
-                    _errorMessage.value = "Email y/o Contraseña incorrecta, intentar nuevamnete"
+                    _errorMessage.value = "Email y/o Contraseña incorrecta, intentar nuevamente"
                 }
 
                 else -> {

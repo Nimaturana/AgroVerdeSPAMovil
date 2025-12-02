@@ -16,7 +16,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
+
 
 
 // se define todo lo que tendra loginscreen
@@ -118,15 +118,4 @@ fun LoginScreen(
         }
     }
 }
-// emulacion
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun LoginScreenPreview() {
-    MaterialTheme {
 
-        LoginScreen(
-            onLoginSuccess = { /* Simulación */ },
-            onNavigateToRegister = { /* Simulación */ }
-        )
-    }
-}

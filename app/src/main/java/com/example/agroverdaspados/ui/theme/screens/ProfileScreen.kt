@@ -20,7 +20,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.FileProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -210,12 +209,5 @@ private fun createImageUri(context: Context): Uri? {
     }
 }
 
-// emulacion
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun ProfileScreenPreview() {
-    MaterialTheme {
-        ProfileScreen(onBackClick = {})
-    }
-}
+
 

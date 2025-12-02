@@ -10,8 +10,8 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitClient {
 
-    // ⚠️ CAMBIA ESTA URL POR LA DE TU API
-    private const val BASE_URL = "https://dummyjson.com/"
+    // API subida a render y mongo atlas en base URL
+    private const val BASE_URL = "private const val BASE_URL = \"https://agroverdeapi.onrender.com/api/\"\n"
 
     /**
      * Inicializa Retrofit con el contexto de la app

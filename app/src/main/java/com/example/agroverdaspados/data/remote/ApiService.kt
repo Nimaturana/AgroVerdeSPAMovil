@@ -67,7 +67,18 @@ interface ApiService {
      * Ejemplo de uso:
      * val user = apiService.getUserById(1)
      */
-
+    // endpoint users
     @GET("users/{id}")
     suspend fun getUserById(@Path("id") id: Int): UserDto
+
+    // endpoint productos
+    @GET("productos")
+    suspend fun getProductos(): List<ProductoDto>
+
+    // endpoint productos id
+    @GET("productos/{id}")
+    suspend fun getProductoById(@Path("id") id: String): ProductoDto
+
 }
+
+

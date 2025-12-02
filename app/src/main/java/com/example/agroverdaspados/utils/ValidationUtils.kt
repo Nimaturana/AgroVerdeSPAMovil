@@ -4,8 +4,10 @@ package com.example.agroverdaspados.utils
 // se usa en formularios como el login y registro
 object ValidationUtils {
 
+    // se soluciona bypass erroneo por culpa de codigo
+    // se mejoran validaciones
     fun isValidEmail(email: String): Boolean {
-        return email.contains("@") && email.contains(".")
+        return email.contains("@") && email.contains(".com")
     }
 
     fun isValidPassword(password: String): Boolean {
