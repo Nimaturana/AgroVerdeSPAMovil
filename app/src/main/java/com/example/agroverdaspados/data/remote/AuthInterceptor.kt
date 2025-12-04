@@ -22,23 +22,29 @@ class AuthInterceptor(
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest = chain.request()
+        val url = originalRequest.url.toString()
 
-        // recupera el token
+        // ENDPOINTS PÚBLICOS (sin token)
+        val endpointsPublicos = listOf(
+            "/producto-agricola"
+        )
+
+        if (endpointsPublicos.any { url.contains(it) }) {
+            return chain.proceed(originalRequest)
+        }
+
+        // cargar token
         val token = runBlocking {
             sessionManager.getAuthToken()
         }
 
-        // continua con la peticion original si no hay token guardado
         if (token.isNullOrEmpty()) {
             return chain.proceed(originalRequest)
         }
 
-        // crea nueva peticion con token
         val authenticatedRequest = originalRequest.newBuilder()
             .header("Authorization", "Bearer $token")
             .build()
-
-        // continua con la peticion autenticada
 
         return chain.proceed(authenticatedRequest)
     }

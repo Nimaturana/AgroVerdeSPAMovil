@@ -6,22 +6,22 @@ import com.google.gson.annotations.SerializedName
  * DTO = Data Transfer Object
  * Este objeto representa los datos que VIAJAN entre tu app y el servidor
  */
+
 data class UserDto(
-    @SerializedName("id")
-    val id: Int,
 
-    @SerializedName("username")
-    val username: String,
 
-    @SerializedName("email")
+    @SerializedName("_id")
+    val id: String,
     val email: String,
-
-    @SerializedName("firstName")
-    val firstName: String,
-
-    @SerializedName("lastName")
-    val lastName: String,
-
-    @SerializedName("image")
-    val image: String? = null
+    val role : String,
+    val isActive:Boolean,
+    val telefono:String?,
+    val direccion:String?,
+    // val certificaciones:List<String>?,
+    val isVerified:Boolean?,
+    val profileId: String,
+    val profileCreatedAt: String,
+    val profileUpdatedAt: String,
+    val nombre:String,
+    val preferencias: List<String>
 )

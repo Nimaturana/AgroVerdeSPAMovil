@@ -56,6 +56,7 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+    implementation("androidx.core:core-ktx:1.12.0")
 
     // OkHttp - Cliente HTTP
     implementation("com.squareup.okhttp3:okhttp:4.12.0")

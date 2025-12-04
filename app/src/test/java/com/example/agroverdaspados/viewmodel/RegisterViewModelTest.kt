@@ -2,7 +2,6 @@ package com.example.agroverdaspados.viewmodel
 
 import android.app.Application
 import com.example.agroverdaspados.data.local.UserDataStore
-import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers

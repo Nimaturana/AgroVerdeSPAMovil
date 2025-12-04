@@ -72,7 +72,7 @@ interface ApiService {
     suspend fun getUserById(@Path("id") id: Int): UserDto
 
     // endpoint productos
-    @GET("productos")
+    @GET("productos/agricola")
     suspend fun getProductos(): List<ProductoDto>
 
     // endpoint productos id
