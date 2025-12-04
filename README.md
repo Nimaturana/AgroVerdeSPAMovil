@@ -126,6 +126,8 @@ Base URL: (https://api.openweathermap.org/data/2.5/weather?q=Santiago&appid=9741
 - El usuario nuevo abre la App y llega a LoginScreen
 - Llega a RegisterScreen y llena el formulario solicitado y presiona (Registar)
 - La App lo verifica y se guardan los datos en token en SessionManager y se envia a HomeScreen.
+- Llega al Home de seleccion de perfil , productos o Clima tambien existe la posibilidad de cerrar sesion
+- Entra Productos y puede aplicar filtros de busquedas , agregar valores u ordenar por categorias.
 - El Usuario presiona Perfil o ProfileScreen y puede cambiar foto seleccionando Camara 
 - Toma la foto despues acepta y queda actualizada la foto de perfil de la cuenta.
 
