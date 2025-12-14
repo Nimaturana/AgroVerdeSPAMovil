@@ -21,6 +21,8 @@ Alcance EP3 tenemos un:
 - Navegación usada es el JetPack Navigation
 - Persistencia Local : DataStore (Usado para el SessionManager)
 - Componentes Nativos que son Camata y Galeria llamados
+- Persistencia Local: DataStore (para SessionManager)
+- Backend: MongoDB Atlas + Render
  
 ### Instalación:
 Primero que deben abrir su gitHub y clonar el repositorio : https://github.com/Nimaturana/AgroVerdeSPAMovil.git 
@@ -34,8 +36,12 @@ Primero que deben abrir su gitHub y clonar el repositorio : https://github.com/N
  ### Proceso basico 
  Registro -> Validacion -> Login -> Home -> Perfil 
  ### Imagenes de la estructura de proyecto.
- - <img width="391" height="927" alt="image" src="https://github.com/user-attachments/assets/f9588359-3477-480c-ac27-ce16e8985eb3" />
- - <img width="390" height="235" alt="image" src="https://github.com/user-attachments/assets/39e7e7f8-1961-4c5e-b0e5-b81825628279" />
+ - <img width="390" height="887" alt="image" src="https://github.com/user-attachments/assets/c9ba4c03-3897-4a3c-b168-f1dd829b587a" />
+ -   <img width="390" height="681" alt="image" src="https://github.com/user-attachments/assets/5ac748c4-c378-45d6-8773-4bc0c91004c6" />
+
+
+
+
 
 
  
@@ -60,11 +66,14 @@ Primero que deben abrir su gitHub y clonar el repositorio : https://github.com/N
 <img width="200" height="923" alt="image" src="https://github.com/user-attachments/assets/b64bc624-521b-4d61-ac06-3f60628f4719" />
 
 
-### Aqui tenemos el Home despues de haber iniciado sesion el cual enseña la opcion de ir a Perfil y este trae la API de clima junto a su boton.
-<img width="200" height="921" alt="image" src="https://github.com/user-attachments/assets/a492fad4-7b75-42c7-b2c9-78d6432e8931" />
+### Aqui tenemos el Home despues de haber iniciado sesion el cual enseña la opcion de ir a Perfil -> Productos -> Ver Clima de mayor acceso facil y al pie de la vista un Cerrar Sesion.
+<img width="200" height="792" alt="image" src="https://github.com/user-attachments/assets/dae66ff6-2e38-4467-8778-d9599580e9c2" />
+
+### Aqui tenemos la vista de productos disponibles son su barra busqueda , categoria , precio minimo - precio maximo en un listado de items.
+<img width="200" height="736" alt="image" src="https://github.com/user-attachments/assets/80c2a0b2-0a3e-4ad3-8b39-900c0d3d733c" />
 
 
-### Aqui tenemos la pantalla de Profile que tiene acceso a camara e info de la cuenta con los datos.
+### Aqui tenemos la pantalla de Perfil que tiene acceso a camara e info de la cuenta con los datos.
 <img width="200" height="920" alt="image" src="https://github.com/user-attachments/assets/4606f7b0-9925-4dbe-993b-3e17a8d5bd40" />
 
 
@@ -80,7 +89,9 @@ Primero que deben abrir su gitHub y clonar el repositorio : https://github.com/N
 - Un Gestion de sesión llamado (SessionManager) que esta puesto en la carpeta Local y la función que hace es recordar al usuario que ya este registrado.
  
 - Trae un (HomeScreen.kt y un HomeViewModel) es la pantalla que sale después de dar inicio sesión mejor dicho el menú general y que se encarga de traerte el clima.
- 
+  
+- ProductosViewModel Controla el catálogo de productos Su función principal es conectar con el ProductoRepository para listar los productos pero además incluye un sistema de filtros que nos  permite buscar en tiempo real por nombre, categoría y rango de precios,ascendente y descendente actualizando la lista automáticamente sin recargar la pantalla.
+  
 - Perfil Basico llamado (ProfileScreen.kt) que ese seria el perfil del usario donde se muestra la info que se puso al crear la cuenta. Tambien cuenta con AvatarRepository que nos ayuda a guardar la foto o la que tomaste con la camara.
 
 Apartado más especificado de 
@@ -115,6 +126,8 @@ Base URL: (https://api.openweathermap.org/data/2.5/weather?q=Santiago&appid=9741
 - El usuario nuevo abre la App y llega a LoginScreen
 - Llega a RegisterScreen y llena el formulario solicitado y presiona (Registar)
 - La App lo verifica y se guardan los datos en token en SessionManager y se envia a HomeScreen.
+- Llega al Home de seleccion de perfil , productos o Clima tambien existe la posibilidad de cerrar sesion
+- Entra Productos y puede aplicar filtros de busquedas , agregar valores u ordenar por categorias.
 - El Usuario presiona Perfil o ProfileScreen y puede cambiar foto seleccionando Camara 
 - Toma la foto despues acepta y queda actualizada la foto de perfil de la cuenta.
 
