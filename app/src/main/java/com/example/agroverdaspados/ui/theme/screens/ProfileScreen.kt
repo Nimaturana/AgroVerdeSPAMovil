@@ -12,6 +12,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CameraAlt
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -31,11 +32,15 @@ import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
 
-// se define todo lo que tendra profilescreen
-
+/**
+ * Pantalla de perfil del usuario
+ */
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
-fun ProfileScreen(onBackClick: () -> Unit = {}) {
+fun ProfileScreen(
+    onBackClick: () -> Unit = {},
+    onLogoutClick: () -> Unit
+) {
     val context = LocalContext.current
     val viewModel: ProfileViewModel = viewModel()
     val uiState by viewModel.uiState.collectAsState()
@@ -57,7 +62,7 @@ fun ProfileScreen(onBackClick: () -> Unit = {}) {
 
     val permissionState = rememberMultiplePermissionsState(permissions)
 
-    //  launcher de la camara
+    // launcher de la camara
     val takePictureLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.TakePicture()
     ) { success ->
@@ -66,7 +71,7 @@ fun ProfileScreen(onBackClick: () -> Unit = {}) {
         }
     }
 
-    //  launcher de galeria
+    // launcher de galeria
     val pickImageLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.GetContent()
     ) { uri ->
@@ -119,8 +124,7 @@ fun ProfileScreen(onBackClick: () -> Unit = {}) {
             .fillMaxSize()
             .padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally
-    )
-    {
+    ) {
 
         // título de perfil
         Text(
@@ -130,6 +134,7 @@ fun ProfileScreen(onBackClick: () -> Unit = {}) {
         )
 
         Spacer(modifier = Modifier.height(24.dp))
+
         Box(
             modifier = Modifier.size(150.dp),
             contentAlignment = Alignment.BottomEnd
@@ -164,7 +169,7 @@ fun ProfileScreen(onBackClick: () -> Unit = {}) {
                 }
             }
 
-            // i de camara pequeño
+            // icono de camara pequeño
             Surface(
                 modifier = Modifier
                     .size(40.dp)
@@ -185,9 +190,26 @@ fun ProfileScreen(onBackClick: () -> Unit = {}) {
         Spacer(modifier = Modifier.height(16.dp))
         Text(uiState.userName, style = MaterialTheme.typography.titleLarge)
         Text(uiState.userEmail, style = MaterialTheme.typography.bodyMedium)
+
         Spacer(modifier = Modifier.height(32.dp))
+
         Button(onClick = onBackClick) {
             Text("Volver")
+        }
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        // boton cerrar sesion
+        OutlinedButton(
+            onClick = onLogoutClick,
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.outlinedButtonColors(
+                contentColor = MaterialTheme.colorScheme.error
+            )
+        ) {
+            Icon(Icons.Default.ExitToApp, contentDescription = null)
+            Spacer(Modifier.width(8.dp))
+            Text("Cerrar Sesión")
         }
     }
 }
@@ -208,6 +230,3 @@ private fun createImageUri(context: Context): Uri? {
         null
     }
 }
-
-
-

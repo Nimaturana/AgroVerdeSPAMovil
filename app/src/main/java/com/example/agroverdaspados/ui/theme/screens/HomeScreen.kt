@@ -116,20 +116,7 @@ fun HomeScreen(
                 )
             }
         }
-
-        Spacer(Modifier.weight(1f))
-
-        // boton cerrar sesion
-        OutlinedButton(
-            onClick = onLogoutClick,
-            modifier = Modifier.fillMaxWidth(),
-            colors = ButtonDefaults.outlinedButtonColors(
-                contentColor = MaterialTheme.colorScheme.error
-            )
-        ) {
-            Icon(Icons.Default.ExitToApp, contentDescription = null)
-            Spacer(Modifier.width(8.dp))
-            Text("Cerrar Sesión")
-        }
     }
 }
+
+
