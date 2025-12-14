@@ -34,7 +34,7 @@ Primero que deben abrir su gitHub y clonar el repositorio : https://github.com/N
  ### Arquitectura y flujo del Proyecto:
 
  ### Proceso basico 
- Registro -> Validacion -> Login -> Home -> Perfil 
+ Registro -> Validacion -> Login -> Home -> Perfil -> Productos -> Carrito Compras -> finalizar Compra -> Compra con Éxito. 
  ### Imagenes de la estructura de proyecto.
  - <img width="390" height="887" alt="image" src="https://github.com/user-attachments/assets/c9ba4c03-3897-4a3c-b168-f1dd829b587a" />
  -   <img width="390" height="681" alt="image" src="https://github.com/user-attachments/assets/5ac748c4-c378-45d6-8773-4bc0c91004c6" />
@@ -69,12 +69,21 @@ Primero que deben abrir su gitHub y clonar el repositorio : https://github.com/N
 ### Aqui tenemos el Home despues de haber iniciado sesion el cual enseña la opcion de ir a Perfil -> Productos -> Ver Clima de mayor acceso facil y al pie de la vista un Cerrar Sesion.
 <img width="200" height="792" alt="image" src="https://github.com/user-attachments/assets/dae66ff6-2e38-4467-8778-d9599580e9c2" />
 
-### Aqui tenemos la vista de productos disponibles son su barra busqueda , categoria , precio minimo - precio maximo en un listado de items.
-<img width="200" height="736" alt="image" src="https://github.com/user-attachments/assets/80c2a0b2-0a3e-4ad3-8b39-900c0d3d733c" />
+### Aqui tenemos la vista de productos disponibles que tiene el boton de filtro el cual contine categoria , precio minimo - precio maximo en un listado de items y opcion de ver el carrito de compras.
+<img width="200" height="769" alt="image" src="https://github.com/user-attachments/assets/b340fdac-4f2b-4803-a23e-70501f33da09" />
+
+### Vista de Carrito de compras ver productos seleccionados muestra el total de la compra y finalizar compra al pie de vista.
+
+<img width="200" height="769" alt="image" src="https://github.com/user-attachments/assets/67dc1ef8-0deb-48cc-97b4-8a465774a2fa" />
+
+
+### Ventana de una vez realizada la compra con éxito y con opcion de regresar al inicio.
+<img width="200" height="776" alt="image" src="https://github.com/user-attachments/assets/1502798c-88e1-433f-a7c1-2f070d51b9f7" />
 
 
 ### Aqui tenemos la pantalla de Perfil que tiene acceso a camara e info de la cuenta con los datos.
-<img width="200" height="920" alt="image" src="https://github.com/user-attachments/assets/4606f7b0-9925-4dbe-993b-3e17a8d5bd40" />
+<img width="200" height="774" alt="image" src="https://github.com/user-attachments/assets/05727227-aa68-4bc4-b5d4-536cdefccbf5" />
+
 
 
 
@@ -128,6 +137,9 @@ Base URL: (https://api.openweathermap.org/data/2.5/weather?q=Santiago&appid=9741
 - La App lo verifica y se guardan los datos en token en SessionManager y se envia a HomeScreen.
 - Llega al Home de seleccion de perfil , productos o Clima tambien existe la posibilidad de cerrar sesion
 - Entra Productos y puede aplicar filtros de busquedas , agregar valores u ordenar por categorias.
+- Secciona productos agregar al carro y tiene opcion de ver el carrito de compras con finalizar compra.
+- Una vez seleccionado finalizar compra puede ver una pantalla que le dice que su compra se realizo con éxito.
+- Tambien parte inferior hay una barra de botones multiples.
 - El Usuario presiona Perfil o ProfileScreen y puede cambiar foto seleccionando Camara 
 - Toma la foto despues acepta y queda actualizada la foto de perfil de la cuenta.
 
